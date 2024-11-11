@@ -1,0 +1,28 @@
+@RestController
+@RequestMapping("/user")
+public class UserController {
+
+    private final UserService userService;
+
+    // Constructor injection
+    public UserController(UserService userService) {
+        this.userService = userService;
+    }
+
+    @PostMapping("/")
+    public User createUser(@RequestBody User user) throws Exception {
+        Set<UserRole> roles = new HashSet<>();
+        
+        Role role = new Role();
+        role.setroleId(45L);
+        role.setRoleName("NORMAL");
+        
+        UserRole userRole = new UserRole();
+        userRole.setUser(user);
+        userRole.setRole(role);
+        
+        roles.add(userRole);
+        
+        return this.userService.createUser(user, roles);
+    }
+}

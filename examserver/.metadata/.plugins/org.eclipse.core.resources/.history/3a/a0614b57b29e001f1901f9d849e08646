@@ -1,0 +1,40 @@
+package com.exam;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+import com.exam.model.Role;
+import com.exam.model.User;
+import com.exam.service.UserService;
+
+@SpringBootApplication
+public class ExamserverApplication implements CommandLineRunner{
+
+	
+	@Autowired
+	private UserService userService;
+	
+	public static void main(String[] args) {
+		SpringApplication.run(ExamserverApplication.class, args);
+	}
+
+	@Override
+	public void run(String... args) throws Exception {
+		System.out.println("Starting code");
+		User user=new User();
+		user.setFirstname("Arman");
+		user.setLastname("Shaikh");
+		user.setUsername("Arman22");
+		user.setPassword("abc");
+		user.setEmail("arman@gmail.com");
+		user.setProfile("deafult.png");
+		
+		Role role1= new Role();
+		role1.setroleId(44L);
+		role1.setRoleName("admin");
+		
+	}
+
+}

@@ -1,0 +1,28 @@
+package com.exam.model;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name="roles")
+public class Role {
+	
+	@Id
+	private Long roldeId;
+	private String roleName;
+	public Long getRoldeId() {
+		return roldeId;
+	}
+	public void setRoldeId(Long roldeId) {
+		this.roldeId = roldeId;
+	}
+	public String getRoleName() {
+		return roleName;
+	}
+	public void setRoleName(String roleName) {
+		this.roleName = roleName;
+	}
+	
+
+}
